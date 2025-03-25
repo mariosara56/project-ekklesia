@@ -8,6 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <script src='https://cdn.tailwindcss.com'></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+        body {
+            font-family: 'Mona Sans', sans-serif;
+        }
+    </style>
 
     <title>
         @isset($title)
@@ -89,9 +96,15 @@
             </div>
         </nav>
         <main>
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                {{ $slot }}
-            </div>
+            @isset($class)
+                <div class="{{ $class }}">
+                    {{ $slot }}
+                </div>
+            @else
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    {{ $slot }}
+                </div>
+            @endisset
         </main>
     </div>
 
